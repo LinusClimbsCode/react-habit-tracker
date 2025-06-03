@@ -42,4 +42,4 @@ You can find bellow a recommended file structure to follow:
 This mini project is a great opportunity to solidify your React fundamentals while building something practical. By creating a Habit Tracker from scratch, you’ll gain real experience with state management, user interaction, and persistent data storage practices, and focus on building a clean, responsive user interface. Most importantly, have fun and enjoy what you build. You’ve got this—happy coding! 🚀
 
 ## Project Resources
-A [React Documentation](https://react.dev/reference/react).
+[React Documentation](https://react.dev/reference/react).
