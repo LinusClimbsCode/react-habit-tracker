@@ -1,46 +1,40 @@
-import { useState } from 'react';
-
-const HabitFormItem = ({ item, onDelete}) => {
-  const [counter, setCounter] = useState(0);
-
-  const handleClick = (operator) => {
-    if (operator === '+') {
-      setCounter((prev) => prev + 1);
-    } else {
-      setCounter((prev) => prev - 1);
-    }
-  };
-
+const HabitListItem = ({ item, onDelete, onIncrement, onDecrement }) => {
   return (
-    <div className="flex items-center justify-between bg-slate-500 rounded p-2 m-4">
-      <p>{item.content}</p>
-      <div className="flex items-center justify-center">
-        <button
-          className="flex items-center justify-center bg-green-500 rounded p-2 m-2 min-w-10 min-h-10"
-          onClick={() => handleClick('+')}
-          disabled={(counter == item.goals) ? true : false}
-        >
-          +
-        </button>
-        <button
-          className="flex items-center justify-center bg-slate-800 rounded p-2 m-2 min-w-10 min-h-10"
-          onClick={() => handleClick('-')}
-          disabled={(counter == 0) ? true : false}
-        >
-          -
-        </button>
-        <p className="flex">
-          progress: {counter}/{item.goals}
-        </p>
-        <button
-            className="flex items-center justify-center bg-red-500 rounded p-2 m-2 min-w-10 min-h-10 text-white"
-            onClick={() => onDelete(item.id)}
-        >
-            Delete
-        </button>
-      </div>
+    <div
+      className={`flex items-center gap-2 m-2 p-2 rounded ${
+        item.completed ? "bg-green-700" : "bg-slate-600"
+      }`}
+    >
+      <span className="flex-1">{item.content}</span>
+      <button
+        onClick={() => onDecrement(item.id)}
+        className="bg-gray-400 px-2 rounded text-black"
+        disabled={item.status === 0}
+        aria-label="Decrement"
+      >
+        -
+      </button>
+      <span className="w-16 text-center">
+        {item.status} / {item.goals}
+      </span>
+      <button
+        onClick={() => onIncrement(item.id)}
+        className="bg-gray-400 px-2 rounded text-black"
+        disabled={item.status === item.goals}
+        aria-label="Increment"
+      >
+        +
+      </button>
+      {item.completed && <span className="text-green-300 ml-2">✅</span>}
+      <button
+        onClick={() => onDelete(item.id)}
+        className="bg-red-500 px-2 rounded"
+        aria-label="Delete"
+      >
+        Delete
+      </button>
     </div>
   );
 };
 
-export default HabitFormItem;
+export default HabitListItem;
