@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const HabitForm = ({ onAdd }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [goals, setGoals] = useState(1);
 
   const handleSubmit = (e) => {
@@ -17,17 +17,17 @@ const HabitForm = ({ onAdd }) => {
     };
 
     onAdd(newHabit);
-    setName("");
+    setName('');
     setGoals(1);
   };
 
   return (
     <form
-      className="flex items-center justify-center gap-4 border border-dashed rounded m-8 p-4 group relative"
+      className="m-8 p-2 flex items-center justify-center gap-2 border border-dashed rounded group relative"
       onSubmit={handleSubmit}
     >
       <input
-        className="p-2 rounded bg-slate-600 text-white w-9/12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="rounded bg-slate-600 text-white w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         type="text"
         placeholder="New habit"
         value={name}
@@ -35,7 +35,7 @@ const HabitForm = ({ onAdd }) => {
         required
       />
       <input
-        className="p-2 rounded bg-slate-600 text-white w-24 w-2/12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="rounded bg-slate-600 text-white min-w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         type="number"
         min="1"
         value={goals}
@@ -43,7 +43,7 @@ const HabitForm = ({ onAdd }) => {
         required
       />
       <button
-        className="px-4 py-2 bg-green-500 rounded text-white min-w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="bg-indigo-200 rounded text-white min-w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         type="submit"
       >
         Add Habit
