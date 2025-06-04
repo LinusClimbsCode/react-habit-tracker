@@ -1,59 +1,41 @@
-import { useState } from 'react';
 import Header from './components/Header';
 import HabitList from './components/HabitList';
 import ProgressActions from './components/ProgressActions';
 import HabitForm from './components/HabitForm';
-
+import { useHabits } from './components/HabitStorage';
 
 function App() {
-  const [items, setItems] = useState([]);
-
-  const handleIncrement = (id) => {
-    setItems((prev) =>
-      prev.map((habit) =>
-        habit.id === id
-          ? {
-              ...habit,
-              status: habit.status + 1,
-              completed: habit.status + 1 === habit.goals,
-            }
-          : habit
-      )
-    );
-  };
-
-  const handleDecrement = (id) => {
-    setItems((prev) =>
-      prev.map((habit) =>
-        habit.id === id
-          ? {
-              ...habit,
-              status: habit.status - 1,
-              completed: false,
-            }
-          : habit
-      )
-    );
-  };
-
-  const onDelete = (itemID) => {
-    setItems(items.filter(item => item.id !== itemID));
-  };
+  const {
+    habitItem,
+    HandleStatusIncrement,
+    HandleStatusDecrement,
+    HandleDelete,
+    HandleUpdate,
+    HandleDeleteAll,
+    HandleCompleteAllGoals,
+    HandleResetAllGoals,
+    setHabitItem,
+  } = useHabits();
 
   return (
     <div className='bg-slate-800 text-neutral-100 min-h-screen'>
       <Header />
-      {items.length > 0 && (
-        <ProgressActions items={items} setItems={setItems} />
+      {habitItem.length > 0 && (
+        <ProgressActions
+          items={habitItem}
+          setItems={setHabitItem}
+          onDeleteAll={HandleDeleteAll}
+          onCompleteAll={HandleCompleteAllGoals}
+          onResetAll={HandleResetAllGoals}
+        />
       )}
       <HabitList
-        items={items}
-        setItems={setItems}
-        onDelete={onDelete}
-        onIncrement={handleIncrement}
-        onDecrement={handleDecrement}
+        items={habitItem}
+        onDelete={HandleDelete}
+        onIncrement={HandleStatusIncrement}
+        onDecrement={HandleStatusDecrement}
       />
-          <HabitForm setItems={setItems} items={items} />
+      <HabitForm setItems={setHabitItem} items={habitItem} onAdd={HandleUpdate} />
     </div>
   );
 }
