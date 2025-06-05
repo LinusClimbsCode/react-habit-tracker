@@ -20,7 +20,7 @@ WBS Coding School Project (React Mini Project Habit Tracker// Lesson 48 - Topic 
 To keep things organized and easy to manage, your project follows a simple, modular file structure. All your reusable `components` live inside of the components folder.
 
 You can find bellow a recommended file structure to follow:
-
+```
 1    habit-tracker/
 2    ├── src/
 3    │   ├── components/
@@ -32,7 +32,7 @@ You can find bellow a recommended file structure to follow:
 9    │   ├── App.jsx
 10   │   ├── index.css
 11   │   └── main.jsx
-
+```
 
 ## 🤓 Tips for Effective Planning
 1. **Daily stand-ups:** Use them to keep your instructor in the loop about blockers and to share insights with your classmates.
