@@ -34,12 +34,5 @@ You can find bellow a recommended file structure to follow:
 11   │   └── main.jsx
 ```
 
-## 🤓 Tips for Effective Planning
-1. **Daily stand-ups:** Use them to keep your instructor in the loop about blockers and to share insights with your classmates.
-2. **Keep things tidy and in order:** You won’t find a Trello board here, but you can create one on your own!
-3. **ASK FOR HELP:** If you’re stuck for more than 30 minutes, don’t hesitate to reach out for assistance!
-
-This mini project is a great opportunity to solidify your React fundamentals while building something practical. By creating a Habit Tracker from scratch, you’ll gain real experience with state management, user interaction, and persistent data storage practices, and focus on building a clean, responsive user interface. Most importantly, have fun and enjoy what you build. You’ve got this—happy coding! 🚀
-
 ## Project Resources
 A [React Documentation](https://react.dev/reference/react).
